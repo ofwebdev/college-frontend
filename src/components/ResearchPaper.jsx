@@ -42,9 +42,7 @@ function ResearchPaper() {
           {researchPapers.map((paper, index) => (
             <Card key={index}>
               <CardBody>
-                <Link to={paper.url} isExternal>
-                  {paper.title}
-                </Link>
+                <Link to={paper.url}>{paper.title}</Link>
               </CardBody>
             </Card>
           ))}

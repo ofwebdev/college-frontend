@@ -6,12 +6,13 @@ import {
   Input,
   Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -50,7 +51,9 @@ export default function Login() {
                 justify={"space-between"}
               >
                 <Checkbox>Remember me</Checkbox>
-                <Link color={"blue.400"}>Forgot password?</Link>
+                <Link to={"/forgot"} color={"blue.400"}>
+                  Forgot password?
+                </Link>
               </Stack>
               <Button
                 bg={"blue.400"}
@@ -61,6 +64,9 @@ export default function Login() {
               >
                 Sign in
               </Button>
+              <Text fontSize={"lg"}>
+                New to our application? <Link to={"/register"}>Register</Link>
+              </Text>
             </Stack>
           </Stack>
         </Box>
