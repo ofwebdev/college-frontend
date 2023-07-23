@@ -1,0 +1,230 @@
+[
+  {
+    "name": "London University",
+    "image": "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dW5pdmVyc2l0eXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+    "rating": 4.5,
+    "admissionDate": "2023-08-15",
+    "researchCount": 150,
+    "events": [
+      {
+        "name": "Annual Fest",
+        "date": "2023-10-20",
+        "location": "College Campus",
+        "description": "Join us for the annual fest filled with fun and excitement!"
+      },
+      {
+        "name": "Seminar on Technology",
+        "date": "2023-09-10",
+        "location": "Seminar Hall",
+        "description": "Learn about the latest trends in technology in this informative seminar."
+      }
+    ],
+    "sportsFacilities": [
+      {
+        "name": "Football Ground",
+        "location": "Near Hostel",
+        "available": true
+      },
+      {
+        "name": "Basketball Court",
+        "location": "Sports Complex",
+        "available": true
+      },
+      {
+        "name": "Tennis Court",
+        "location": "Sports Complex",
+        "available": false
+      }
+    ]
+  },
+  {
+    "name": "Harvard University",
+    "image": "https://cdn.britannica.com/69/141169-050-CD5892EB/Baker-Library-Harvard-Business-School-Boston-University.jpg",
+    "rating": 4.5,
+    "admissionDate": "2023-09-15",
+    "researchCount": 150,
+    "events": [
+      {
+        "name": "International Cultural Festival",
+        "date": "2023-11-15",
+        "location": "Main Auditorium",
+        "description": "Experience diverse cultures and traditions from around the world at our cultural festival."
+      },
+      {
+        "name": "Career Fair",
+        "date": "2023-09-25",
+        "location": "Exhibition Center",
+        "description": "Meet top employers and explore exciting career opportunities at our annual career fair."
+      }
+    ],
+    "sportsFacilities": [
+      {
+        "name": "Cricket Ground",
+        "location": "Sports Complex",
+        "available": true
+      },
+      {
+        "name": "Swimming Pool",
+        "location": "Sports Complex",
+        "available": true
+      },
+      {
+        "name": "Badminton Court",
+        "location": "Sports Complex",
+        "available": true
+      }
+    ]
+  },
+  {
+    "name": "Oxford University",
+    "image": "https://cdn.britannica.com/03/117103-050-F4C2FC83/view-University-of-Oxford-England-Oxfordshire.jpg",
+    "rating": 4.8,
+    "admissionDate": "2023-09-01",
+    "researchCount": 200,
+    "events": [
+      {
+        "name": "Science Expo",
+        "date": "2023-10-10",
+        "location": "Science Building",
+        "description": "Explore the latest scientific advancements and innovations at the Science Expo."
+      },
+      {
+        "name": "Literary Festival",
+        "date": "2023-11-05",
+        "location": "Library",
+        "description": "Celebrate literature and attend book readings and discussions at the Literary Festival."
+      }
+    ],
+    "sportsFacilities": [
+      {
+        "name": "Athletics Track",
+        "location": "Sports Complex",
+        "available": true
+      },
+      {
+        "name": "Volleyball Court",
+        "location": "Sports Complex",
+        "available": true
+      },
+      {
+        "name": "Gymnasium",
+        "location": "Fitness Center",
+        "available": true
+      }
+    ]
+  },
+  {
+    "name": "Stanford University",
+    "image": "https://cdn.britannica.com/25/121725-050-8BF363EC/Hoover-Tower-Stanford-University-California.jpg",
+    "rating": 4.9,
+    "admissionDate": "2023-09-15",
+    "researchCount": 180,
+    "events": [
+      {
+        "name": "Tech Conference",
+        "date": "2023-10-25",
+        "location": "Conference Center",
+        "description": "Attend the annual Tech Conference to learn about the latest innovations in technology."
+      },
+      {
+        "name": "Career Fair",
+        "date": "2023-11-15",
+        "location": "Student Center",
+        "description": "Connect with employers and explore job opportunities at the Career Fair."
+      }
+    ],
+    "sportsFacilities": [
+      {
+        "name": "Soccer Field",
+        "location": "Sports Complex",
+        "available": true
+      },
+      {
+        "name": "Swimming Pool",
+        "location": "Recreation Center",
+        "available": true
+      },
+      {
+        "name": "Cricket Ground",
+        "location": "Sports Complex",
+        "available": false
+      }
+    ]
+  },
+  {
+    "name": "Global University",
+    "image": "https://news.ag.org/-/media/PENews/Images/1400x490/GlobalUniversity_1400.jpg",
+    "rating": 4.8,
+    "admissionDate": "2023-10-01",
+    "researchCount": 200,
+    "events": [
+      {
+        "name": "Leadership Summit",
+        "date": "2023-11-05",
+        "location": "Auditorium",
+        "description": "Participate in the Leadership Summit to enhance your leadership skills."
+      },
+      {
+        "name": "Science Exhibition",
+        "date": "2023-12-10",
+        "location": "Science Building",
+        "description": "Explore innovative scientific projects at the annual Science Exhibition."
+      }
+    ],
+    "sportsFacilities": [
+      {
+        "name": "Track and Field",
+        "location": "Sports Complex",
+        "available": true
+      },
+      {
+        "name": "Volleyball Court",
+        "location": "Recreation Center",
+        "available": true
+      },
+      {
+        "name": "Hockey Arena",
+        "location": "Sports Complex",
+        "available": false
+      }
+    ]
+  },
+  {
+    "name": "University of California, Berkeley",
+    "image": "https://www.tclf.org/sites/default/files/thumbnails/image/CA_Berkeley_UniversityOfCaliforniaAtBerkeley_byCharlieNguyen-Flickr_2008_001_Sig.jpg",
+    "rating": 4.7,
+    "admissionDate": "2023-09-05",
+    "researchCount": 200,
+    "events": [
+      {
+        "name": "Tech Symposium",
+        "date": "2023-10-10",
+        "location": "Student Union",
+        "description": "Join us for a symposium on the latest advancements in technology."
+      },
+      {
+        "name": "Cultural Festival",
+        "date": "2023-09-20",
+        "location": "Campus Grounds",
+        "description": "Experience the diverse cultures through music, dance, and food at the Cultural Festival."
+      }
+    ],
+    "sportsFacilities": [
+      {
+        "name": "Football Field",
+        "location": "Sports Complex",
+        "available": true
+      },
+      {
+        "name": "Basketball Court",
+        "location": "Sports Complex",
+        "available": true
+      },
+      {
+        "name": "Volleyball Court",
+        "location": "Sports Complex",
+        "available": false
+      }
+    ]
+  }
+]

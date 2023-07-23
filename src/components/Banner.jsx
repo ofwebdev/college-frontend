@@ -28,23 +28,31 @@ export default function Banner() {
                 zIndex: -1,
               }}
             >
-              Education
+              Education for
             </Text>
             <br />
             <Text color={"blue.400"} as={"span"}>
-              Future generation
+              Dream Students
             </Text>
           </Heading>
           <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
             World top most university 50% scholarship admission going on word
-            1000+ university perfect for Education.
+            1000+ university enroll now.
           </Text>
           <Stack direction={{ base: "column", md: "row" }} spacing={4}>
             <Button
+              fontSize={"sm"}
               rounded={"full"}
               bg={"blue.400"}
               color={"white"}
+              px={4}
+              boxShadow={
+                "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
+              }
               _hover={{
+                bg: "blue.500",
+              }}
+              _focus={{
                 bg: "blue.500",
               }}
             >

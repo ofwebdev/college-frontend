@@ -45,21 +45,13 @@ function Header() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <a>Colleges</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              <Link to="/college">Colleges</Link>
             </li>
             <li>
-              <a>Admission</a>
+              <Link to="/admission">Admission</Link>
             </li>
             <li>
-              <a>My college</a>
+              <Link to="/mycollege">My college</Link>
             </li>
           </ul>
         </div>
@@ -70,24 +62,14 @@ function Header() {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li tabIndex={0}>
-            <details>
-              <summary>Colleges</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
+          <li>
+            <Link to="/college">Colleges</Link>
           </li>
           <li>
-            <a>Admission</a>
+            <Link to="/admission">Admission</Link>
           </li>
           <li>
-            <a>My college</a>
+            <Link to="/mycollege">My college</Link>
           </li>
         </ul>
       </div>
@@ -120,7 +102,7 @@ function Header() {
               {user ? (
                 <Text onClick={logoutHandler}>Logout</Text>
               ) : (
-                <Link to="login">Login</Link>
+                <Link to="/login">Login</Link>
               )}
             </li>
           </ul>

@@ -20,48 +20,56 @@ function Gallery() {
           <img
             src="https://images.pexels.com/photos/3776165/pexels-photo-3776165.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Img"
+            style={{ borderRadius: "5px" }}
           />
         </GridItem>
         <GridItem w="100%">
           <img
             src="https://images.pexels.com/photos/6147369/pexels-photo-6147369.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Img"
+            style={{ borderRadius: "5px" }}
           />
         </GridItem>
         <GridItem w="100%">
           <img
             src="https://images.pexels.com/photos/3755760/pexels-photo-3755760.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Img"
+            style={{ borderRadius: "5px" }}
           />
         </GridItem>
         <GridItem w="100%">
           <img
             src="https://images.pexels.com/photos/1699414/pexels-photo-1699414.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Img"
+            style={{ borderRadius: "5px" }}
           />
         </GridItem>
         <GridItem w="100%">
           <img
             src="https://images.pexels.com/photos/901962/pexels-photo-901962.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Img"
+            style={{ borderRadius: "5px" }}
           />
         </GridItem>
         <GridItem w="100%">
           <img
             src="https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Img"
+            style={{ borderRadius: "5px" }}
           />
         </GridItem>
         <GridItem w="100%">
           <img
             src="https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Img"
+            style={{ borderRadius: "5px" }}
           />
         </GridItem>
         <GridItem w="100%">
           <img
             src="https://images.pexels.com/photos/3059654/pexels-photo-3059654.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Img"
+            style={{ borderRadius: "5px" }}
           />
         </GridItem>
       </Grid>

@@ -10,6 +10,11 @@ import Login from "./Page/Login.jsx";
 import Register from "./Page/Register.jsx";
 import ForgotPassword from "./Page/ForgotPassword.jsx";
 import Page404 from "./Page/Page404.jsx";
+import CollegeList from "./Page/College.jsx";
+import CollegeDetails from "./Page/CollegeDetials.jsx";
+import Admission from "./Page/Admission.jsx";
+import MyCollege from "./Page/MyCollege.jsx";
+import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,11 +29,35 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
-
   {
     path: "/forgot",
     element: <ForgotPassword />,
   },
+  {
+    path: "/college",
+    element: <CollegeList />,
+  },
+  {
+    path: "details/:id",
+    element: (
+      <PrivateRoute>
+        <CollegeDetails />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "admission",
+    element: <Admission />,
+  },
+  {
+    path: "mycollege",
+    element: (
+      <PrivateRoute>
+        <MyCollege />
+      </PrivateRoute>
+    ),
+  },
+
   {
     path: "*",
     element: <Page404 />,
