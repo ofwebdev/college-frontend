@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import { Text } from "@chakra-ui/react";
 
 function Header() {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const logoutHandler = () => {
+    logOut()
+      .then(() => {
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 1000);
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -90,17 +104,24 @@ function Header() {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
+            {user ? (
+              // If user is logged in, show profile link
+              <li>
+                <Link to="/profile" className="justify-between">
+                  {user.displayName} Profile
+                  <span className="badge">New</span>
+                </Link>
+              </li>
+            ) : null}
             <li>
               <a>Settings</a>
             </li>
             <li>
-              <Link to="login">Login</Link>
+              {user ? (
+                <Text onClick={logoutHandler}>Logout</Text>
+              ) : (
+                <Link to="login">Login</Link>
+              )}
             </li>
           </ul>
         </div>

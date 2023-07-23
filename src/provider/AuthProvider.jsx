@@ -10,6 +10,9 @@ import {
   GithubAuthProvider,
   updateProfile,
   GoogleAuthProvider,
+  FacebookAuthProvider,
+  TwitterAuthProvider,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 // import axios from "axios";
@@ -43,13 +46,23 @@ function AuthProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const signInWithGmail = () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  const signInWithFacebook = () => {
+    const provider = new FacebookAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
   const signInWithGitHub = () => {
     const provider = new GithubAuthProvider();
     return signInWithPopup(auth, provider);
   };
 
-  const signInWithGmail = () => {
-    const provider = new GoogleAuthProvider();
+  const signInWithTwitter = () => {
+    const provider = new TwitterAuthProvider();
     return signInWithPopup(auth, provider);
   };
 
@@ -94,8 +107,10 @@ function AuthProvider({ children }) {
     updateUserProfile,
     sentEmailLink,
     signIn,
-    signInWithGitHub,
     signInWithGmail,
+    signInWithFacebook,
+    signInWithTwitter,
+    signInWithGitHub,
     recoverPassword,
     logOut,
   };

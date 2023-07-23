@@ -1,3 +1,4 @@
+import { useContext, useState } from "react";
 import {
   Flex,
   Box,
@@ -10,11 +11,73 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  FormErrorMessage,
 } from "@chakra-ui/react";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../provider/AuthProvider";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import GmailLogin from "../components/Login/GmailLogin";
+import GithubLogin from "../components/Login/GithubLogin";
+import FacebookLogin from "../components/Login/FacebookLogin";
 
 export default function Login() {
+  // Add a state to manage the "Remember me" checkbox
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const { signIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+
+        Swal.fire({
+          title: "User Login Successful.",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+
+        reset(); // Reset the form after successful submission
+
+        // Navigate to the desired location
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        if (error.code === "auth/wrong-password") {
+          alert("Wrong password");
+        } else {
+          console.log("Firebase Error:", error.message);
+          // Display a generic error message or handle other Firebase errors
+        }
+      });
+  };
+
+  // Handle the "Remember me" checkbox change
+  const handleRememberMeChange = (event) => {
+    setRememberMe(event.target.checked);
+  };
+
   return (
     <Flex
       minH={"100vh"}
@@ -36,38 +99,65 @@ export default function Login() {
           p={8}
         >
           <Stack spacing={4}>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: "column", sm: "row" }}
-                align={"start"}
-                justify={"space-between"}
-              >
-                <Checkbox>Remember me</Checkbox>
-                <Link to={"/forgot"} color={"blue.400"}>
-                  Forgot password?
-                </Link>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <FormControl id="email" isInvalid={!!errors.email}>
+                <FormLabel>Email address</FormLabel>
+                <Input
+                  type="email"
+                  {...register("email", { required: true })}
+                />
+                {errors.email && (
+                  <FormErrorMessage>Email is required</FormErrorMessage>
+                )}
+              </FormControl>
+              <FormControl id="password" isInvalid={!!errors.password}>
+                <FormLabel>Password</FormLabel>
+                <Input
+                  type="password"
+                  {...register("password", { required: true })}
+                />
+                {errors.password && (
+                  <FormErrorMessage>First name is required</FormErrorMessage>
+                )}
+              </FormControl>
+              <Stack spacing={5}>
+                <Stack
+                  direction={{ base: "column", sm: "row" }}
+                  align={"start"}
+                  justify={"space-between"}
+                  mt={2}
+                >
+                  <Checkbox
+                    checked={rememberMe}
+                    onChange={handleRememberMeChange}
+                  >
+                    Remember me
+                  </Checkbox>
+                  <Link to={"/forgot"} color={"blue.400"}>
+                    Forgot password?
+                  </Link>
+                </Stack>
+                <Button
+                  type="submit"
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}
+                >
+                  Sign in
+                </Button>
+
+                {/* Social login  */}
+                <GmailLogin />
+                <GithubLogin />
+                {/* <FacebookLogin /> */}
+
+                <Text fontSize={"lg"}>
+                  New to our application? <Link to={"/register"}>Register</Link>
+                </Text>
               </Stack>
-              <Button
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-              >
-                Sign in
-              </Button>
-              <Text fontSize={"lg"}>
-                New to our application? <Link to={"/register"}>Register</Link>
-              </Text>
-            </Stack>
+            </form>
           </Stack>
         </Box>
       </Stack>
