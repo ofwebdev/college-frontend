@@ -46,7 +46,7 @@ function Admission() {
   const [colleges, setColleges] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   console.log(user);
 
   useEffect(() => {
@@ -77,6 +77,13 @@ function Admission() {
   const onSubmit = async (data) => {
     console.log(data);
     try {
+      // Find the selected college object based on the college name
+      const selectedCollege = colleges.find(
+        (college) => college.name === data.college
+      );
+
+      // Update the "college" field in the form data to include the college ID
+      data.collegeId = selectedCollege?._id || "";
       // Make a POST request to the server with the form data
       const response = await fetch("http://localhost:5000/admission", {
         method: "POST",
@@ -212,6 +219,7 @@ function Admission() {
                     {colleges.map((college) => (
                       <option key={college._id} value={college.name}>
                         {college.name}
+                        {/* {college._id} */}
                       </option>
                     ))}
                   </Select>

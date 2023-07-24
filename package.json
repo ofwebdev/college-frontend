@@ -15,6 +15,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.1.1",
+    "axios": "^1.4.0",
     "boxicons": "^2.1.4",
     "firebase": "^10.1.0",
     "framer-motion": "^10.13.0",
