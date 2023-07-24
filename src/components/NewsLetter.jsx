@@ -79,14 +79,28 @@ export default function NewsLetter() {
               value={email}
               disabled={state !== "initial"}
               onChange={(e) => setEmail(e.target.value)}
+              style={{ borderRadius: "50px" }}
             />
           </FormControl>
           <FormControl w={{ base: "100%", md: "40%" }}>
             <Button
-              colorScheme={state === "success" ? "green" : "blue"}
-              isLoading={state === "submitting"}
-              w="100%"
-              type={state === "success" ? "button" : "submit"}
+              textAlign={"center"}
+              type="submit"
+              // flex={1}
+              fontSize={"sm"}
+              rounded={"full"}
+              bg={"blue.400"}
+              color={"white"}
+              px={10}
+              boxShadow={
+                "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
+              }
+              _hover={{
+                bg: "blue.500",
+              }}
+              _focus={{
+                bg: "blue.500",
+              }}
             >
               {state === "success" ? <CheckIcon /> : "Submit"}
             </Button>

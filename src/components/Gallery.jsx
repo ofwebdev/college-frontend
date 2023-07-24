@@ -12,7 +12,7 @@ function Gallery() {
   return (
     <Container maxW={"7xl"} py={16} as={Stack} spacing={12}>
       <Stack spacing={0} align={"center"}>
-        <Heading>Our Top Campus & Students </Heading>
+        <Heading>Our Students Gallery </Heading>
         <Text>We have been working with clients around the world</Text>
       </Stack>
       <Grid templateColumns="repeat(4, 1fr)" gap={2}>

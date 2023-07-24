@@ -7,7 +7,10 @@ import {
   Container,
   Avatar,
   useColorModeValue,
+  SimpleGrid,
 } from "@chakra-ui/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Testimonial = ({ children }) => {
   return <Box>{children}</Box>;
@@ -69,8 +72,14 @@ const TestimonialAvatar = ({ src, name, title }) => {
     <Flex align={"center"} mt={8} direction={"column"}>
       <Avatar src={src} alt={name} mb={2} />
       <Stack spacing={-1} align={"center"}>
-        <Text fontWeight={600}>{name}</Text>
-        <Text fontSize={"sm"} color={useColorModeValue("gray.600", "gray.400")}>
+        <Text fontWeight={600} textTransform={"capitalize"}>
+          {name}
+        </Text>
+        <Text
+          textTransform={"capitalize"}
+          fontSize={"sm"}
+          color={useColorModeValue("gray.600", "gray.400")}
+        >
           {title}
         </Text>
       </Stack>
@@ -79,6 +88,22 @@ const TestimonialAvatar = ({ src, name, title }) => {
 };
 
 export default function WithSpeechBubbles() {
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    // Fetch testimonials from the backend API
+    const fetchTestimonials = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/reviews");
+        setTestimonials(response.data);
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+        // You can display an error message to the user here
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
   return (
     <Box bg={useColorModeValue("gray.100", "gray.700")}>
       <Container maxW={"7xl"} py={16} as={Stack} spacing={12}>
@@ -86,59 +111,24 @@ export default function WithSpeechBubbles() {
           <Heading>Our Clients Speak</Heading>
           <Text>We have been working with clients around the world</Text>
         </Stack>
-        <Stack
-          direction={{ base: "column", md: "row" }}
+        <SimpleGrid
+          columns={{ base: 1, sm: 2, md: 3 }} // Three columns for md and larger screens
           spacing={{ base: 10, md: 4, lg: 10 }}
         >
-          <Testimonial>
-            <TestimonialContent>
-              <TestimonialHeading>Efficient Collaborating</TestimonialHeading>
-              <TestimonialText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-                neque sed imperdiet nibh lectus feugiat nunc sem.
-              </TestimonialText>
-            </TestimonialContent>
-            <TestimonialAvatar
-              src={
-                "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
-              }
-              name={"Jane Cooper"}
-              title={"Parents"}
-            />
-          </Testimonial>
-          <Testimonial>
-            <TestimonialContent>
-              <TestimonialHeading>Intuitive Design</TestimonialHeading>
-              <TestimonialText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-                neque sed imperdiet nibh lectus feugiat nunc sem.
-              </TestimonialText>
-            </TestimonialContent>
-            <TestimonialAvatar
-              src={
-                "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
-              }
-              name={"Jane Cooper"}
-              title={"Student"}
-            />
-          </Testimonial>
-          <Testimonial>
-            <TestimonialContent>
-              <TestimonialHeading>Mindblowing Service</TestimonialHeading>
-              <TestimonialText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-                neque sed imperdiet nibh lectus feugiat nunc sem.
-              </TestimonialText>
-            </TestimonialContent>
-            <TestimonialAvatar
-              src={
-                "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
-              }
-              name={"Janifar Lopez"}
-              title={"Student"}
-            />
-          </Testimonial>
-        </Stack>
+          {testimonials.map((testimonial) => (
+            <Testimonial key={testimonial._id}>
+              <TestimonialContent>
+                <TestimonialHeading>{testimonial.title}</TestimonialHeading>
+                <TestimonialText>{testimonial.comment}</TestimonialText>
+              </TestimonialContent>
+              <TestimonialAvatar
+                src={testimonial.avatarSrc}
+                name={testimonial.name}
+                title={testimonial.role}
+              />
+            </Testimonial>
+          ))}
+        </SimpleGrid>
       </Container>
     </Box>
   );

@@ -7,6 +7,7 @@ import {
   Container,
   SimpleGrid,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -35,9 +36,10 @@ function ResearchPaper() {
   return (
     <Container maxW={"7xl"} py={16} as={Stack} spacing={12}>
       <Box className="research-papers-section">
-        <Heading as="h2" size="md" mb={4}>
-          Recommended Research Papers
-        </Heading>
+        <Stack spacing={0} align={"center"} mb={12}>
+          <Heading>Recommend Resource Paper</Heading>
+          <Text>There have some link but it's not work properly</Text>
+        </Stack>
         <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={4}>
           {researchPapers.map((paper, index) => (
             <Card key={index}>
